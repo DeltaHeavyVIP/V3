@@ -16,7 +16,7 @@ public class Entry {
 
         do {
             System.out.println("Выберите откуда вводить данные: \"file\" или \"console\" ?");
-            inp = "file";//TODO scanner.next();
+            inp = scanner.next();
         } while (!inp.equals("console") && !inp.equals("file"));
 
         if (inp.equals("console")) {
@@ -63,8 +63,7 @@ public class Entry {
             System.out.println("Какой уравение ты хочешь проинтегрировать? Могу предложить:\n" +
                     "1) x^3 + 2*x^2 - 3*x - 12 (введи 1)\n" +
                     "2)        sin(x)/х        (введи 2)\n" +
-                    "3)          1/х           (введи 3)\n" +
-                    "4)          х^2           (введи 4)\n"); //TODO
+                    "3)          1/х           (введи 3)\n");
 
             try {
                 equation = Integer.parseInt(scanner.next().trim());
