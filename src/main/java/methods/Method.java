@@ -14,20 +14,26 @@ public abstract class Method {
     public abstract double getAnswer(int n);
 
     public double function(double x, double e, int equation) {
-        if (x == 0 && (equation == 2 || equation == 3)) {
-            return (function(x - e, e, equation) + function(x + e, e, equation)) / 2;
-        }
+        double ret = 0;
         switch (equation) {
             case 1:
-                return x * x * x + 2 * x * x - 3 * x - 12;
+                ret = x * x * x + 2 * x * x - 3 * x - 12;
+                break;
             case 2:
-                return (Math.sin(x) / x);
+                ret =(Math.sin(x) / x);
+                break;
             case 3:
-                return 1 / x;
+                ret = 1 / x;
+                break;
             case 4:
-                return x * x;
+                ret = x * x;
+                break;
             default:
-                return 0;
+                ret = 0;
         }
+        if(Double.isNaN(ret) || Double.isInfinite(ret)){
+            ret = (function(x - e, e, equation) + function(x + e, e, equation)) / 2;
+        }
+        return ret;
     }
 }
